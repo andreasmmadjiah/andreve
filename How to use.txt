@@ -1,0 +1,18 @@
+First pull imaes docker --> docker pull postgres (latest) or docker pull postgres:9.6
+
+docker run --name postgres-django -e POSTGRES_PASSWORD=password -e PGDATA=/var/lib/postgresql/data/pgdata -p 5432:5432 -v postgres:/var/lib/postgresql/data postgres:9.6
+
+
+docker run -p 80:80 -e 'PGADMIN_DEFAULT_EMAIL=user@domain.local' -e 'PGADMIN_DEFAULT_PASSWORD=password' --name pgadmin-django -d dpage/pgadmin4
+
+
+OR 
+
+docker-compose up 
+
+
+
+to see connection from postgre docker inspect andreve_django-postgres_1 -f "{{json .NetworkSettings.Networks }}"
+
+
+in pgadmin use ip home adress from above user postgres password password from your compose
