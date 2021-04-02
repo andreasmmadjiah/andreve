@@ -121,9 +121,10 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
+# STATIC URL IS NOT CONNECTED TO STATICFILES_DIRS!
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
 STATICFILES_DIRS =[
-    BASE_DIR
+    os.path.join(BASE_DIR, 'static'),
 ]
+STATIC_URL = '/static/'

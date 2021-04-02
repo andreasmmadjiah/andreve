@@ -16,3 +16,8 @@ to see connection from postgre docker inspect andreve_django-postgres_1 -f "{{js
 
 
 in pgadmin use ip home adress from above user postgres password password from your compose
+
+to inspect ip address of posgres in docker:
+docker inspect andreve_django-postgres_1
+
+okidoki
