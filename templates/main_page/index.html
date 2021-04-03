@@ -10,17 +10,16 @@
 
 </head>
 <body>
-    <div class='aaa'>
-        <label>ANDREVE</label>
+    <div class='header'>
+        <label>ANDREVE</label> &#9 <a class='list-menu-content'>Home</a> <a class='list-menu-content'>About</a>
     </div>
-    
-    <div class='list-menu'>
-        <a class='list-menu-content'>Home</a>
-        <a class='list-menu-content'>About</a>
-    </div>
+
+<content>
+
     {% for blog in all %}
         <li>{{ blog.title }}</li>
     {% endfor %}
+</content>
 </body>
 </html>
 
