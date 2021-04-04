@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <form method="POST" id="post-form">
+        {% csrf_token %}
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control" id="username" placeholder="Username">
+        </div>
+         <div class="form-group">
+           <label>Password</label>
+           <input class="form-control" id="password" placeholder="Password">
+         </div>
+         <button type="submit" class="btn btn-primary" id='button-form'>Submit</button>
+      </form>
+      <div class="response">
+          <a class="response_text"></a>
+      </div>
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+            $("#button-form").click(function(event){
+                event.preventDefault()
+                $.ajax({
+                    type:"POST",
+                    url:"{% url 'main_page:login_user' %}",
+                    data:{
+                        username:$("#username").val(),
+                        password:$("#password").val(),
+                        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+                        action: 'post'
+                    },
+                    success:function(json){
+                        if (json['is_ok']=='0'){
+                            $(".response_text").text("Username is taken!")
+                        } else if (json['is_ok']=='1'){
+                            $(".response_text").text("SUCCESS!")
+                        }
+                    },
+                    error : function(xhr,errmsg,err) {
+                            console.log(xhr.status + ": " + xhr.responseText);
+                    }
+                })
+
+            })
+
+
+      </script>
+</body>
+</html>

@@ -16,9 +16,11 @@
 
 <content>
 
-    {% for blog in all %}
+    {% for blog in list_blog %}
         <li>{{ blog.title }}</li>
     {% endfor %}
+
+    <a>{{request.path}}</a>
 </content>
 </body>
 </html>

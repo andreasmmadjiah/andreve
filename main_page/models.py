@@ -9,3 +9,16 @@ class List_Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+class List_Creator(models.Model):
+    id_blog = models.ForeignKey(List_Blog, on_delete=models.CASCADE) # delete all related key
+    name = models.CharField(max_length=80)
+    def __str__(self):
+        return self.name
+
+
+# class List_Creator(models.Model):
+#     id_blog = models.ForeignKey(List_Blog, on_delete=models.CASCADE) # delete all related key
+#     name = models.CharField(max_length=80)
+#     def __str__(self):
+#         return self.name
