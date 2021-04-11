@@ -3,6 +3,23 @@
     font-family: Calibri;
 }
 
+.grid-container {
+    display: grid;
+    width: 1220px;
+    grid-column-gap: 20px;
+    grid-template-columns: 20% 30% 50%;
+    background-color: #2196F3;
+    padding: 20px;
+}
+  
+.grid-item {
+    background-color: rgba(150, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
 .header {
     position: absolute;
     top: 1px;
